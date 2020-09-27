@@ -1,0 +1,63 @@
+---
+title: "Exercise 1b"
+author: "Santiago Castro Dau"
+date: "September 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Task
+1. Sample 100 values from a log-normal distribution and report the mean and variance of the sample in line in the text.
+2. Create a histogram of the distribution and the distribution on the log scale.
+
+### Sub-task No. 1: Sampling
+```{r subtask1, echo=TRUE}
+# Lets set the seed so the analysisi is reproducible
+set.seed(123)
+
+# Input parameters of the distribution
+mu <- 0
+sigma <- 1
+
+# Now we can use the function rlnorm to sample our data
+samp <- rlnorm(n = 100, mu, sigma)
+
+# Now lets print the mean and sd of our sample
+mean(samp)
+sd(samp)
+```
+
+### Sub-task No. 2: Plotting
+Now we plot the histogram for our sample in a log scale using the library tidyverse (which imports ggplot2, dplyr and other useful libraries).
+
+```{r subtask2, echo=TRUE, fig.align='center'}
+# Import libreries (the have to be previously installed)
+suppressMessages(library(tidyverse, warn.conflicts = FALSE))
+
+# Transform samp into a tibble
+samp <- samp %>% as_tibble()
+
+# Plot histogram (without log scale)
+samp %>% ggplot(aes(x=value)) +
+  geom_histogram(binwidth = 0.5, 
+                 color = "black",
+                 fill = "white",
+                 aes(y=..density..)) +
+  geom_density(alpha=.2, fill="#FF6666") +
+  theme_minimal()
+
+# Plot histogram (without log scale)
+samp %>% ggplot(aes(x=value)) +
+  geom_histogram(binwidth = 0.5, 
+                 color = "black",
+                 fill = "white",
+                 aes(y=..density..)) +
+  geom_density(alpha=.2, fill="#FF6666") +
+  scale_x_continuous(trans='log') +
+  theme_minimal()
+
+```
+
