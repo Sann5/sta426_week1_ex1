@@ -6,4 +6,5 @@
 [Click here to see a GIF of a smiling dog](https://media3.giphy.com/media/1d7F9xyq6j7C1ojbC5/giphy.gif)
 
 O wait! I can also just show it to you. You dont have to click on the link. Markdown is cool he?!
+
 ![Smiling doggo](https://media3.giphy.com/media/1d7F9xyq6j7C1ojbC5/giphy.gif)
