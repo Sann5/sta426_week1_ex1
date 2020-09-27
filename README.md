@@ -1,4 +1,4 @@
-# Homework 1
+# Exercise 1a
 ### Author: Santiago Manuel Castro Dau
 ### GitHub username: Sann5
 #### Task: Create a README.md file with an image and a link.
